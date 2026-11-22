@@ -26,7 +26,8 @@ it. Set `GIT` to use a git binary other than the one on `PATH`.
 Every scenario has two branches, `A` and `B`. A merge always means merging `B`
 into `A`, with `A` named first.
 
-Seeds 1 to 100000 are the development range. Acceptance runs seeds outside it.
+Seeds 1 to 100000 are the development range. Other seeds are used for
+comparison.
 
 Each seed picks one family. About a third of the seeds are criss-cross
 histories, a quarter are overlapping edits, a fifth are renames, and the
@@ -109,7 +110,7 @@ It opens the repository at `<repo>` (bare or not), merges `<branch2>` into
 `<branch1>` and prints exactly what the oracle prints for the same arguments,
 with the same exit status. It writes every object of the merged tree into the
 repository, so `git ls-tree -r <tree>` and `git cat-file` work on the result
-right after it runs. It reads nothing from the environment: checks run it
+right after it runs. It reads nothing from the environment and must work
 with only `HOME` (an empty directory) and `LC_ALL=C` set and no `PATH`.
 
     mergetree cherry-pick <worktree> <commit> theirs|ours
